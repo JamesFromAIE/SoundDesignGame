@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class EXIT : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class EXIT : MonoBehaviour
                 Debug.Log("Goodbye Cruel World!");
 
                 Application.Quit();
+                EditorApplication.ExitPlaymode();
             }
             else if (verifyTime <= 1)
             {
