@@ -31,7 +31,6 @@ public class FPSMovement : MonoBehaviour
     void Awake()
     {
         m_finalSpeed = m_movementSpeed;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

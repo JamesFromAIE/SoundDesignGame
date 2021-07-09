@@ -31,7 +31,7 @@ public class EXIT : MonoBehaviour
 
 
 
-        if (clicked == false)
+        if (!clicked)
         {
             if (Physics.Raycast(ray, out hit, rayLength) && hit.transform.tag == "ExitButton" && Input.GetMouseButtonDown(0))
             {
@@ -57,6 +57,8 @@ public class EXIT : MonoBehaviour
                 Debug.Log("Goodbye Cruel World!");
 
                 Application.Quit();
+
+                // DISABLE THIS STATEMENT ON BUILD
                 EditorApplication.ExitPlaymode();
             }
             else if (verifyTime <= 1)
