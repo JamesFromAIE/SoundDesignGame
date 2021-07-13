@@ -8,6 +8,10 @@ public class ReflexButtons : MonoBehaviour
     private float rayLength = 5f;
     // Has button been clicked?
 
+    public AudioSource rBAudio;
+    public AudioClip sfx_rb_click;
+    private float pitch;
+
 
     // Throwaway 'one-time' boolean
     public bool hasRun = false;
@@ -45,6 +49,7 @@ public class ReflexButtons : MonoBehaviour
         tmLight.SetActive(false);
         brLight.SetActive(false);
         trLight.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -112,11 +117,15 @@ public class ReflexButtons : MonoBehaviour
     // What happens when you press a button
     void PressedButton()
     {
+        pitch = 1.0f;
         // Gives new random number
         NewButton();
 
         // Lights selected button
         LitButtons();
+
+        rBAudio.pitch = pitch;
+        rBAudio.Play();
         // Increments score by 1
         reflexTest.score++;
     }
@@ -150,6 +159,9 @@ public class ReflexButtons : MonoBehaviour
 
             case 1:
                 tlLight.SetActive(true);
+
+                pitch = 0.6f;
+                
                 blLight.SetActive(false);
                 tmLight.SetActive(false);
                 brLight.SetActive(false);
@@ -157,6 +169,9 @@ public class ReflexButtons : MonoBehaviour
                 break;
             case 2:
                 blLight.SetActive(true);
+
+                pitch = 0.8f;
+
                 tlLight.SetActive(false);
                 tmLight.SetActive(false);
                 brLight.SetActive(false);
@@ -164,6 +179,9 @@ public class ReflexButtons : MonoBehaviour
                 break;
             case 3:
                 tmLight.SetActive(true);
+
+                pitch = 1.0f;
+
                 tlLight.SetActive(false);
                 blLight.SetActive(false);
                 brLight.SetActive(false);
@@ -171,6 +189,9 @@ public class ReflexButtons : MonoBehaviour
                 break;
             case 4:
                 brLight.SetActive(true);
+
+                pitch = 1.2f;
+
                 tlLight.SetActive(false);
                 blLight.SetActive(false);
                 tmLight.SetActive(false);
@@ -178,6 +199,9 @@ public class ReflexButtons : MonoBehaviour
                 break;
             case 5:
                 trLight.SetActive(true);
+
+                pitch = 1.4f;
+
                 tlLight.SetActive(false);
                 blLight.SetActive(false);
                 tmLight.SetActive(false);

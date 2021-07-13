@@ -5,6 +5,12 @@ public class ReactionScreen : MonoBehaviour
 {
     public FPSMovement fpsMovement;
 
+    public AudioSource screenAudio;
+    public AudioClip sfx_rs_start;
+    public AudioClip sfx_rs_green;
+    public AudioClip sfx_rs_click_green;
+    public AudioClip sfx_rs_click_red;
+
     private GameObject player;
     public GameObject startingPoint;
 
@@ -110,6 +116,9 @@ public class ReactionScreen : MonoBehaviour
         // If Green, start reaction timer
         if (gameObject.GetComponent<Renderer>().material.color == Color.green)
         {
+            gameObject.GetComponent<AudioSource>().clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
+            screenAudio.Play(); // Play sound
+
             reactionTime += Time.deltaTime;
         }
     }
@@ -133,6 +142,14 @@ public class ReactionScreen : MonoBehaviour
                 // If Cyan, Turn Red
                 if (gameObject.GetComponent<Renderer>().material.color == Color.cyan)
                 {
+                    if (reactionCount != 0)
+                    {
+                        gameObject.GetComponent<AudioSource>().clip = sfx_rs_start; // Sets the audio clip in AudioSource to single sound
+
+                        screenAudio.Play(); // Play sound
+                    }
+
+
                     // Remove Early notification if playing
                     earlyText.enabled = false;
                     earlyMask.enabled = false;
@@ -145,6 +162,11 @@ public class ReactionScreen : MonoBehaviour
                 else if (gameObject.GetComponent<Renderer>().material.color == Color.green)
                 {
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
+
+                    gameObject.GetComponent<AudioSource>().clip = sfx_rs_click_green; // Sets the audio clip in AudioSource to single sound
+                    screenAudio.Play(); // Play sound
+
+
                     hasRun = false;
                     Debug.Log("Your reaction time was " + reactionTime + " seconds!");
                     ReactionTimes();
@@ -162,6 +184,12 @@ public class ReactionScreen : MonoBehaviour
                 else if (gameObject.GetComponent<Renderer>().material.color == Color.red)
                 {
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
+                    
+                    
+                    gameObject.GetComponent<AudioSource>().clip = sfx_rs_click_red; // Sets the audio clip in AudioSource to single sound
+
+                    screenAudio.Play(); // Play sound
+
                     timer = 0;
                     Debug.Log("You clicked TOO EARLY!");
                     hasRun = false;
