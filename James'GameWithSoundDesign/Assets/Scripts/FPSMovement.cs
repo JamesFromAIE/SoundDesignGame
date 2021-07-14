@@ -25,6 +25,11 @@ public class FPSMovement : MonoBehaviour
     public KeyCode m_sprint;
     public KeyCode m_jump;
 
+    [SerializeField] AudioSource ftsAudioS;
+    [SerializeField] AudioClip foley_player_fts;
+    [SerializeField] float ftsTTime;
+    [SerializeField] float ftsCTime;
+
     private float m_finalSpeed = 0;
 
     // Start is called before the first frame update
@@ -52,6 +57,10 @@ public class FPSMovement : MonoBehaviour
         {
             move = transform.right * x + transform.forward * z; // calculate the move vector (direction)          
         }
+        else
+        {
+            ftsCTime = 0;
+        }
 
         MovePlayer(move); // Run the MovePlayer function with the vector3 value move
         RunCheck(); // Checks the input for run
@@ -65,6 +74,7 @@ public class FPSMovement : MonoBehaviour
 
         m_velocity.y += m_gravity * Time.deltaTime; // Gravity affects the jump velocity
         m_charControler.Move(m_velocity * Time.deltaTime); //Actually move the player up
+        PlayFtsAudio();
     }
 
     // Player run
@@ -105,5 +115,16 @@ public class FPSMovement : MonoBehaviour
             }
         }
 
+    }
+
+    void PlayFtsAudio()
+    {
+        if (ftsCTime >= ftsTTime)
+        {
+            ftsAudioS.clip = foley_player_fts;
+            ftsAudioS.Play();
+            ftsCTime = 0;
+        }
+        ftsCTime += Time.deltaTime;
     }
 }

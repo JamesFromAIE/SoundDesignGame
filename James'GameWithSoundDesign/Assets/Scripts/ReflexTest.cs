@@ -30,6 +30,7 @@ public class ReflexTest : MonoBehaviour
 
     [HideInInspector]
     public bool playing;
+    [HideInInspector] public bool RBActive = false;
 
     public bool reflexSent = false;
 
@@ -70,6 +71,8 @@ public class ReflexTest : MonoBehaviour
             // Turns off Player movement
             fpsMovement.enabled = false;
 
+            RBActive = true;
+
             startShown = true;
             
 
@@ -94,6 +97,8 @@ public class ReflexTest : MonoBehaviour
             reflexSent = true;
 
             resultShown = true;
+
+            RBActive = false;
 
             // Resets Timer
             reflexButtons.gameTimer = 10;

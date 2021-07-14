@@ -3,6 +3,8 @@
 public class MidPoint : MonoBehaviour
 {
     public GameObject onRay;
+    [SerializeField] AudioSource OffClick;
+    [SerializeField] AudioClip foley_player_click;
 
     private int state;
 
@@ -47,7 +49,8 @@ public class MidPoint : MonoBehaviour
         {
             state = 0;
         }
-            StateOfPoint();
+        StateOfPoint();
+        PlayOffClick();
     }
 
     void StateOfPoint()
@@ -78,6 +81,15 @@ public class MidPoint : MonoBehaviour
                 onRay.SetActive(true);
                 break;
 
+        }
+    }
+
+    void PlayOffClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OffClick.clip = foley_player_click;
+            OffClick.Play();
         }
     }
 }

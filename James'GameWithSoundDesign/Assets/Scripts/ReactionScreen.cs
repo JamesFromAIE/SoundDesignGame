@@ -5,7 +5,10 @@ public class ReactionScreen : MonoBehaviour
 {
     public FPSMovement fpsMovement;
 
-    public AudioSource screenAudio;
+    public AudioSource AudioS_start;
+    public AudioSource AudioS_green;
+    public AudioSource AudioS_clickGreen;
+    public AudioSource AudioS_clickRed;
     public AudioClip sfx_rs_start;
     public AudioClip sfx_rs_green;
     public AudioClip sfx_rs_click_green;
@@ -54,6 +57,9 @@ public class ReactionScreen : MonoBehaviour
     public Text startNumber;
     private float startTime = 4f;
     private bool startUI = false;
+
+    //establishes whether test is active
+    public bool RSActive = false;
 
     void Start()
     {
@@ -116,8 +122,8 @@ public class ReactionScreen : MonoBehaviour
         // If Green, start reaction timer
         if (gameObject.GetComponent<Renderer>().material.color == Color.green)
         {
-            gameObject.GetComponent<AudioSource>().clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
-            screenAudio.Play(); // Play sound
+            AudioS_green.clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
+            AudioS_green.Play(); // Play sound
 
             reactionTime += Time.deltaTime;
         }
@@ -144,9 +150,9 @@ public class ReactionScreen : MonoBehaviour
                 {
                     if (reactionCount != 0)
                     {
-                        gameObject.GetComponent<AudioSource>().clip = sfx_rs_start; // Sets the audio clip in AudioSource to single sound
+                        AudioS_start.clip = sfx_rs_start; // Sets the audio clip in AudioSource to single sound
 
-                        screenAudio.Play(); // Play sound
+                        AudioS_start.Play(); // Play sound
                     }
 
 
@@ -163,8 +169,8 @@ public class ReactionScreen : MonoBehaviour
                 {
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
 
-                    gameObject.GetComponent<AudioSource>().clip = sfx_rs_click_green; // Sets the audio clip in AudioSource to single sound
-                    screenAudio.Play(); // Play sound
+                    AudioS_clickGreen.clip = sfx_rs_click_green; // Sets the audio clip in AudioSource to single sound
+                    AudioS_clickGreen.Play(); // Play sound
 
 
                     hasRun = false;
@@ -178,17 +184,18 @@ public class ReactionScreen : MonoBehaviour
                         AverageTime();
                         reactionCount = 0;
                         fpsMovement.enabled = true;
+                        RSActive = false;
                     }
                 }
                 // If Red, Turn Cyan and inform player they clicked too early
                 else if (gameObject.GetComponent<Renderer>().material.color == Color.red)
                 {
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
-                    
-                    
-                    gameObject.GetComponent<AudioSource>().clip = sfx_rs_click_red; // Sets the audio clip in AudioSource to single sound
 
-                    screenAudio.Play(); // Play sound
+
+                    AudioS_clickRed.clip = sfx_rs_click_red; // Sets the audio clip in AudioSource to single sound
+
+                    AudioS_clickRed.Play(); // Play sound
 
                     timer = 0;
                     Debug.Log("You clicked TOO EARLY!");
@@ -267,6 +274,8 @@ public class ReactionScreen : MonoBehaviour
             player.transform.rotation = startingPoint.transform.rotation;
             // Turns off Player movement
             fpsMovement.enabled = false;
+            //tells scripts that test is active
+            RSActive = true;
 
             startTime -= Time.deltaTime;
             startMask.enabled = true;

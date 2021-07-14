@@ -212,7 +212,7 @@ AudioMixerController:
     - 9db04a1ca8210ea488422e06b96962a5
     - 3567e47094061a342bbfca02f838d129
     name: James View - Copy
-  m_CurrentViewIndex: 1
+  m_CurrentViewIndex: 2
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
@@ -261,6 +261,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c1425fc01dbe753479f953d31cd9f4f3
   m_FloatValues:
+    4124b6eb35c303e4a948be32bda83752: -11.944499
     892979dfdd5d23148ab87f7faf00d97a: -9.833286
   m_TransitionOverrides: {}
 --- !u!243 &1022738477962395772
