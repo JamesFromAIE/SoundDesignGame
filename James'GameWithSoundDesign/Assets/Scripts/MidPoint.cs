@@ -46,6 +46,10 @@ public class MidPoint : MonoBehaviour
         {
             state = 5;
         }
+        else if (Physics.Raycast(ray, out hit, 5) && hit.transform.tag == "WorldObjects")
+        {
+            state = 6;
+        }
         else
         {
             state = 0;
@@ -81,13 +85,15 @@ public class MidPoint : MonoBehaviour
             case 5:
                 onRay.SetActive(true);
                 break;
-
+            case 6:
+                onRay.SetActive(false);
+                break;
         }
     }
 
     void PlayOffClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && state != 0)
         {
             OffClick.clip = foley_player_click;
             OffClick.Play();
