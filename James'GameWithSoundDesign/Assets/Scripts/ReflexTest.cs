@@ -28,6 +28,13 @@ public class ReflexTest : MonoBehaviour
     private float startTime = 4f;
     private bool startShown = false;
 
+    // Start and finishing sound sources
+    public AudioSource AudioS_testStart;
+    public AudioSource AudioS_testDone;
+    public AudioClip ui_test_start;
+    public AudioClip ui_test_done;
+    bool countdownActive = false;
+
     [HideInInspector]
     public bool playing;
     [HideInInspector] public bool RBActive = false;
@@ -88,6 +95,8 @@ public class ReflexTest : MonoBehaviour
             // Stop the game
             playing = false;
 
+            AudioS_testDone.PlayOneShot(ui_test_done);
+
             reflexButtons.randomNumber = 0;
 
             reflexButtons.LitButtons();
@@ -137,6 +146,13 @@ public class ReflexTest : MonoBehaviour
             startText.enabled = true;
             startNumber.enabled = true;
 
+            if (countdownActive == false)
+            {
+                AudioS_testStart.PlayOneShot(ui_test_start);
+                Debug.Log("Test Start Audio");
+                countdownActive = true;
+            }
+
             startNumber.text = "" + startTime;
 
             if (startTime <= 1)
@@ -145,6 +161,7 @@ public class ReflexTest : MonoBehaviour
                 startText.enabled = false;
                 startNumber.enabled = false;
                 startShown = false;
+                countdownActive = false;
 
                 playing = true;
                 score = 0;
