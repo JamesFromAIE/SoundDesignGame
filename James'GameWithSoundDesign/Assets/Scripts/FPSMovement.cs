@@ -61,9 +61,11 @@ public class FPSMovement : MonoBehaviour
             move = transform.right * x + transform.forward * z; // calculate the move vector (direction)       
             PlayFtsAudio();
         }
-        else
-        { 
-            ftsCTime = ftsTTime - walkDelay;
+
+        ftsCTime += Time.deltaTime; // Increases Footstep Timer
+        if (ftsCTime > ftsTTime)
+        {
+            ftsCTime = ftsTTime; // sets current time to T time if it's over. Not necessary but cleaner.
         }
 
         MovePlayer(move); // Run the MovePlayer function with the vector3 value move
@@ -123,17 +125,12 @@ public class FPSMovement : MonoBehaviour
 
     void PlayFtsAudio()
     {
-        if (Input.GetKeyDown(m_forward) || Input.GetKeyDown(m_back) || Input.GetKeyDown(m_left) || Input.GetKeyDown(m_right))
-        {
-            ftsAudioS.Play();
-        }
-        
-        if (ftsCTime >= ftsTTime)
-        {
-            ftsAudioS.Play();
-            ftsCTime = 0;
-        }
-        ftsCTime += Time.deltaTime;
+        if (Input.GetKey(m_forward) || Input.GetKey(m_back) || Input.GetKey(m_left) || Input.GetKey(m_right))
+            if(ftsTTime <= ftsCTime) // Checks if current time is equal or larger than the set T time
+            {
+                ftsAudioS.Play();
+                ftsCTime = 0;
+            }
     }
     
 }
