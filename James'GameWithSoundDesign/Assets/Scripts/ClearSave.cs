@@ -5,6 +5,9 @@ public class ClearSave : MonoBehaviour
 {
     private float rayLength = 4f;
 
+    public AudioSource AudioS_buttonClick;
+    public AudioClip ui_button_click;
+
     public bool clearReflex;
     public bool clearReaction;
 
@@ -34,6 +37,7 @@ public class ClearSave : MonoBehaviour
             clearReflex = true;
             clearReaction = true;
             clearShown = true;
+            AudioS_buttonClick.PlayOneShot(ui_button_click);
         }
 
         if (clearShown)

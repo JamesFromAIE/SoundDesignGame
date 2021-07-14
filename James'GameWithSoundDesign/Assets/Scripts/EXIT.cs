@@ -11,6 +11,9 @@ public class EXIT : MonoBehaviour
     private float verifyTime = 6;
     private bool clicked = false;
 
+    public AudioSource AudioS_buttonClick;
+    public AudioClip ui_button_click;
+
     public Text exitTest;
     public Text exitNumber;
     public GameObject exitMask;
@@ -36,6 +39,7 @@ public class EXIT : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayLength) && hit.transform.tag == "ExitButton" && Input.GetMouseButtonDown(0))
             {
                 clicked = true;
+                AudioS_buttonClick.PlayOneShot(ui_button_click);
             }
         }
 

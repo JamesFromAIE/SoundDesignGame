@@ -9,10 +9,14 @@ public class ReactionScreen : MonoBehaviour
     public AudioSource AudioS_green;
     public AudioSource AudioS_clickGreen;
     public AudioSource AudioS_clickRed;
+    public AudioSource AudioS_testStart;
+    public AudioSource AudioS_testDone;
     public AudioClip sfx_rs_start;
     public AudioClip sfx_rs_green;
     public AudioClip sfx_rs_click_green;
     public AudioClip sfx_rs_click_red;
+    public AudioClip ui_test_start;
+    public AudioClip ui_test_done;
 
     private GameObject player;
     public GameObject startingPoint;
@@ -60,6 +64,8 @@ public class ReactionScreen : MonoBehaviour
 
     //establishes whether test is active
     public bool RSActive = false;
+    //establishes whether the countdown is active
+    bool countdownActive = false;
 
     void Start()
     {
@@ -72,6 +78,8 @@ public class ReactionScreen : MonoBehaviour
         startMask.enabled = false;
         startText.enabled = false;
         startNumber.enabled = false;
+
+        AudioS_testStart.clip = ui_test_start;
 
         // Finds "Player" in Scene
         player = GameObject.FindWithTag("Player");
@@ -185,6 +193,7 @@ public class ReactionScreen : MonoBehaviour
                         reactionCount = 0;
                         fpsMovement.enabled = true;
                         RSActive = false;
+                        AudioS_testDone.PlayOneShot(ui_test_done);
                     }
                 }
                 // If Red, Turn Cyan and inform player they clicked too early
@@ -277,6 +286,13 @@ public class ReactionScreen : MonoBehaviour
             //tells scripts that test is active
             RSActive = true;
 
+            if (countdownActive == false)
+            {
+                AudioS_testStart.PlayOneShot(ui_test_start);
+                Debug.Log("Test Start Audio");
+                countdownActive = true;
+            }
+
             startTime -= Time.deltaTime;
             startMask.enabled = true;
             startText.enabled = true;
@@ -290,6 +306,7 @@ public class ReactionScreen : MonoBehaviour
                 startText.enabled = false;
                 startNumber.enabled = false;
                 startUI = false;
+                countdownActive = false;
 
                 gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
 
