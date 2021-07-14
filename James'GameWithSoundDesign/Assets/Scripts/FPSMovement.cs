@@ -29,6 +29,7 @@ public class FPSMovement : MonoBehaviour
     [SerializeField] AudioClip foley_player_fts;
     [SerializeField] float ftsTTime;
     [SerializeField] float ftsCTime;
+    [SerializeField] float walkDelay;
 
     private float m_finalSpeed = 0;
 
@@ -36,6 +37,8 @@ public class FPSMovement : MonoBehaviour
     void Awake()
     {
         m_finalSpeed = m_movementSpeed;
+
+        ftsAudioS.clip = foley_player_fts;
     }
 
     // Update is called once per frame
@@ -55,11 +58,12 @@ public class FPSMovement : MonoBehaviour
 
         if (Input.GetKey(m_forward) || Input.GetKey(m_back) || Input.GetKey(m_left) || Input.GetKey(m_right))
         {
-            move = transform.right * x + transform.forward * z; // calculate the move vector (direction)          
+            move = transform.right * x + transform.forward * z; // calculate the move vector (direction)       
+            PlayFtsAudio();
         }
         else
-        {
-            ftsCTime = 0;
+        { 
+            ftsCTime = ftsTTime - walkDelay;
         }
 
         MovePlayer(move); // Run the MovePlayer function with the vector3 value move
@@ -74,7 +78,7 @@ public class FPSMovement : MonoBehaviour
 
         m_velocity.y += m_gravity * Time.deltaTime; // Gravity affects the jump velocity
         m_charControler.Move(m_velocity * Time.deltaTime); //Actually move the player up
-        PlayFtsAudio();
+        
     }
 
     // Player run
@@ -119,12 +123,17 @@ public class FPSMovement : MonoBehaviour
 
     void PlayFtsAudio()
     {
+        if (Input.GetKeyDown(m_forward) || Input.GetKeyDown(m_back) || Input.GetKeyDown(m_left) || Input.GetKeyDown(m_right))
+        {
+            ftsAudioS.Play();
+        }
+        
         if (ftsCTime >= ftsTTime)
         {
-            ftsAudioS.clip = foley_player_fts;
             ftsAudioS.Play();
             ftsCTime = 0;
         }
         ftsCTime += Time.deltaTime;
     }
+    
 }

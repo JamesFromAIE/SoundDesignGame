@@ -14,6 +14,7 @@ public class MidPoint : MonoBehaviour
         onRay.SetActive(false);  
     }
 
+
     // Update is called once per frame
     void Update()
     {

@@ -8,10 +8,14 @@ public class ReflexButtons : MonoBehaviour
     private float rayLength = 5f;
     // Has button been clicked?
 
+    // Audio Variables
     public AudioSource rBAudio;
     public AudioClip sfx_rb_click;
     private float pitch;
 
+    // Control pitch in inspector
+    [SerializeField]
+    private float pitchShift = 0.0f;
 
     // Throwaway 'one-time' boolean
     public bool hasRun = false;
@@ -124,7 +128,7 @@ public class ReflexButtons : MonoBehaviour
         // Lights selected button
         LitButtons();
 
-        rBAudio.pitch = pitch;
+        rBAudio.pitch = pitch + pitchShift;
         rBAudio.Play();
         // Increments score by 1
         reflexTest.score++;

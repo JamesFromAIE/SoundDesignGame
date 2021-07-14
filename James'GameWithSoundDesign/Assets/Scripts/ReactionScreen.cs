@@ -18,6 +18,8 @@ public class ReactionScreen : MonoBehaviour
     public AudioClip ui_test_start;
     public AudioClip ui_test_done;
 
+    private bool isGreen = false;
+
     private GameObject player;
     public GameObject startingPoint;
 
@@ -130,11 +132,18 @@ public class ReactionScreen : MonoBehaviour
         // If Green, start reaction timer
         if (gameObject.GetComponent<Renderer>().material.color == Color.green)
         {
-            AudioS_green.clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
-            AudioS_green.Play(); // Play sound
+            if (isGreen == false)
+            {
+                AudioS_green.clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
+                AudioS_green.Play(); // Play sound
+                isGreen = true;
+            }
+            
+            
 
             reactionTime += Time.deltaTime;
         }
+
     }
 
     // What happens when colours are triggered
@@ -177,8 +186,11 @@ public class ReactionScreen : MonoBehaviour
                 {
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
 
+                    isGreen = false;
+
                     AudioS_clickGreen.clip = sfx_rs_click_green; // Sets the audio clip in AudioSource to single sound
                     AudioS_clickGreen.Play(); // Play sound
+
 
 
                     hasRun = false;

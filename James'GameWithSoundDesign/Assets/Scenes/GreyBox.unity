@@ -283,7 +283,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onRay: {fileID: 1793977922}
   OffClick: {fileID: 754041920}
-  foley_player_click: {fileID: 0}
+  foley_player_click: {fileID: 8300000, guid: 6097b1748e04eb946bd4e4331d0b5238, type: 3}
 --- !u!114 &63186647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11375,6 +11375,7 @@ MonoBehaviour:
   reflexTest: {fileID: 1419721698}
   rBAudio: {fileID: 1821285897}
   sfx_rb_click: {fileID: 8300000, guid: 6cbf144614be03f4aa9a5351f03fd85c, type: 3}
+  pitchShift: 1
   hasRun: 0
   topLeft: {fileID: 190083898}
   bottomLeft: {fileID: 121468354}
@@ -13185,9 +13186,10 @@ MonoBehaviour:
   m_sprint: 304
   m_jump: 32
   ftsAudioS: {fileID: 7465350183889246867}
-  foley_player_fts: {fileID: 0}
+  foley_player_fts: {fileID: 8300000, guid: 9afb8393390275747a1eb5076e836a4a, type: 3}
   ftsTTime: 0.4
   ftsCTime: 0
+  walkDelay: 0.05
 --- !u!33 &7465350183266762026
 MeshFilter:
   m_ObjectHideFlags: 0

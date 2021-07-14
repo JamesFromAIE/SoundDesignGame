@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+#pragma warning disable 0649
     //references
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioClip music_world;

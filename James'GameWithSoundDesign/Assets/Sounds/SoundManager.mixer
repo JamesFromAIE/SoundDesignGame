@@ -216,11 +216,19 @@ AudioMixerController:
   - guids:
     - def727a6c7c924746b5ccd36a4bbaa5b
     - 85d5f9fa6a507344d83d921855553374
-    - 3567e47094061a342bbfca02f838d129
-    - c5279c4640e1de049a93ac72893d3b0a
-    - 121d0206cf154be43b5abf1a4a2bdb95
     - 63176dd003fec144b99bbedbc0a5091c
     - 9db04a1ca8210ea488422e06b96962a5
+    - 3567e47094061a342bbfca02f838d129
+    - 49a0ce980576a2c4186504e065dbc7f4
+    - d67564c58a39a5b4888a54f59ae38ca7
+    - 950ee9c355ebaa743837158aaaef448b
+    - 69649a235423f0c4fa36b6d243d82048
+    - bd8baab7d8678cb4f9ad36332295a3a6
+    - c5279c4640e1de049a93ac72893d3b0a
+    - 21deaecc3a7b48b4ca374b977f9cdca3
+    - e8a9feaf31962424f8dd5ffddbc43c4d
+    - 643cf5fdd2066184091576589e930459
+    - 121d0206cf154be43b5abf1a4a2bdb95
     name: Main View
   - guids:
     - def727a6c7c924746b5ccd36a4bbaa5b
@@ -251,7 +259,7 @@ AudioMixerController:
     - 9db04a1ca8210ea488422e06b96962a5
     - 3567e47094061a342bbfca02f838d129
     name: James View - Copy
-  m_CurrentViewIndex: 3
+  m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
@@ -300,8 +308,14 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c1425fc01dbe753479f953d31cd9f4f3
   m_FloatValues:
-    4124b6eb35c303e4a948be32bda83752: -11.944499
+    06425ec307305344aa20e3f0f7989d47: 0.8
+    3e6f4dd64208b57489fbfb98523a7636: -9.833291
+    f970b659703f7c143b33facc038d89ad: 0.13552584
+    fe18b8d976cc0e0488444edbb2b55e71: -5.3230734
+    4124b6eb35c303e4a948be32bda83752: -19.928473
+    030c5cbf5a7cd9e4e9493cd125096e60: -10.345207
     892979dfdd5d23148ab87f7faf00d97a: -9.833286
+    c05c46ef3d8804b439eaa067c364a66a: 1
   m_TransitionOverrides: {}
 --- !u!243 &381439637118812622
 AudioMixerGroupController:
