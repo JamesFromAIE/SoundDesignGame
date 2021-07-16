@@ -1844,10 +1844,10 @@ MonoBehaviour:
   AudioS_clickRed: {fileID: 1602831852}
   AudioS_testStart: {fileID: 1762469308}
   AudioS_testDone: {fileID: 314861218}
-  sfx_rs_start: {fileID: 8300000, guid: f2553bb8405f9874daa38cc0440dbec1, type: 3}
-  sfx_rs_green: {fileID: 8300000, guid: b6b878ad082bf664d8edddbf3c11a92b, type: 3}
-  sfx_rs_click_green: {fileID: 8300000, guid: 39993127f9b1d8d4fa511aeb0e834126, type: 3}
-  sfx_rs_click_red: {fileID: 8300000, guid: ab8f34da0981ca14892646fe7c61a8e7, type: 3}
+  sfx_screen_start: {fileID: 8300000, guid: 0d80521e3cfd13941b4947363d0d89e3, type: 3}
+  sfx_screen_green: {fileID: 8300000, guid: 000eb5304f0c6ed47a328ded3ccba1f0, type: 3}
+  sfx_screen_click_green: {fileID: 8300000, guid: 2ae71e82ef446644898478c3c69e708f, type: 3}
+  sfx_screen_click_red: {fileID: 8300000, guid: ab8f34da0981ca14892646fe7c61a8e7, type: 3}
   ui_test_start: {fileID: 8300000, guid: 840546df5768fc447877c0628baf7f57, type: 3}
   ui_test_done: {fileID: 8300000, guid: debfa195d3f1b144f94b3007b468379d, type: 3}
   startingPoint: {fileID: 1199085744}
@@ -11374,7 +11374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reflexTest: {fileID: 1419721698}
   rBAudio: {fileID: 1821285897}
-  sfx_rb_click: {fileID: 8300000, guid: 6cbf144614be03f4aa9a5351f03fd85c, type: 3}
+  sfx_button_click: {fileID: 8300000, guid: 6cbf144614be03f4aa9a5351f03fd85c, type: 3}
   pitchShift: 1
   hasRun: 0
   topLeft: {fileID: 190083898}

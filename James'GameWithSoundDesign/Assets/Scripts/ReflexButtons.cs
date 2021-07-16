@@ -10,7 +10,7 @@ public class ReflexButtons : MonoBehaviour
 
     // Audio Variables
     public AudioSource rBAudio;
-    public AudioClip sfx_rb_click;
+    public AudioClip sfx_button_click;
     private float pitch;
 
     // Control pitch in inspector

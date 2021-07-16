@@ -27,9 +27,8 @@ public class FPSMovement : MonoBehaviour
 
     [SerializeField] AudioSource ftsAudioS;
     [SerializeField] AudioClip foley_player_fts;
-    [SerializeField] float ftsTTime;
-    [SerializeField] float ftsCTime;
-    [SerializeField] float walkDelay;
+    [SerializeField] float ftsTTime = 0.4f;
+    [SerializeField] float ftsCTime = 0;
 
     private float m_finalSpeed = 0;
 

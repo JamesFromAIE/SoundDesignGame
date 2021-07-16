@@ -57,9 +57,6 @@ public class EXIT : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, rayLength) && hit.transform.tag == "ExitButton" && Input.GetMouseButtonDown(0) && verifyTime > 0 && verifyTime <= 5.75f)
             {
-
-                Debug.Log("Goodbye Cruel World!");
-
                 Application.Quit();
 
                 // DISABLE THIS STATEMENT ON BUILD

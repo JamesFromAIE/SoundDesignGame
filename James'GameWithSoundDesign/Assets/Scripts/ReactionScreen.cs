@@ -11,10 +11,10 @@ public class ReactionScreen : MonoBehaviour
     public AudioSource AudioS_clickRed;
     public AudioSource AudioS_testStart;
     public AudioSource AudioS_testDone;
-    public AudioClip sfx_rs_start;
-    public AudioClip sfx_rs_green;
-    public AudioClip sfx_rs_click_green;
-    public AudioClip sfx_rs_click_red;
+    public AudioClip sfx_screen_start;
+    public AudioClip sfx_screen_green;
+    public AudioClip sfx_screen_click_green;
+    public AudioClip sfx_screen_click_red;
     public AudioClip ui_test_start;
     public AudioClip ui_test_done;
 
@@ -114,7 +114,6 @@ public class ReactionScreen : MonoBehaviour
             // Gives ONE random range per attempt
             if (hasRun == false)
             {
-                Debug.Log("PLAYING REFLEX TEST!");
                 randomTime = Random.Range(1.0f, 7.0f);
                 hasRun = true;
             }
@@ -134,7 +133,7 @@ public class ReactionScreen : MonoBehaviour
         {
             if (isGreen == false)
             {
-                AudioS_green.clip = sfx_rs_green; // Sets the audio clip in AudioSource to single sound
+                AudioS_green.clip = sfx_screen_green; // Sets the audio clip in AudioSource to single sound
                 AudioS_green.Play(); // Play sound
                 isGreen = true;
             }
@@ -167,7 +166,7 @@ public class ReactionScreen : MonoBehaviour
                 {
                     if (reactionCount != 0)
                     {
-                        AudioS_start.clip = sfx_rs_start; // Sets the audio clip in AudioSource to single sound
+                        AudioS_start.clip = sfx_screen_start; // Sets the audio clip in AudioSource to single sound
 
                         AudioS_start.Play(); // Play sound
                     }
@@ -188,16 +187,18 @@ public class ReactionScreen : MonoBehaviour
 
                     isGreen = false;
 
-                    AudioS_clickGreen.clip = sfx_rs_click_green; // Sets the audio clip in AudioSource to single sound
-                    AudioS_clickGreen.Play(); // Play sound
-
-
-
                     hasRun = false;
-                    Debug.Log("Your reaction time was " + reactionTime + " seconds!");
                     ReactionTimes();
                     reactionTime = 0;
                     reactionCount++;
+
+                    if (reactionCount != 3)
+                    {
+                        AudioS_clickGreen.clip = sfx_screen_click_green; // Sets the audio clip in AudioSource to single sound
+                        AudioS_clickGreen.Play(); // Play sound
+                    }
+
+                    // When test is Over
                     if (reactionCount == 3)
                     {
                         resultShown = true;
@@ -214,12 +215,11 @@ public class ReactionScreen : MonoBehaviour
                     gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 1);
 
 
-                    AudioS_clickRed.clip = sfx_rs_click_red; // Sets the audio clip in AudioSource to single sound
+                    AudioS_clickRed.clip = sfx_screen_click_red; // Sets the audio clip in AudioSource to single sound
 
                     AudioS_clickRed.Play(); // Play sound
 
                     timer = 0;
-                    Debug.Log("You clicked TOO EARLY!");
                     hasRun = false;
                     earlyShown = true;
                 }
@@ -253,10 +253,6 @@ public class ReactionScreen : MonoBehaviour
         averageReaction = (Mathf.Round(averageReaction * 1000) / 1000);
 
         // Linked to Function in Database --> Update()
-        
-
-        Debug.Log("Your average reaction time is " + averageReaction + " seconds!");
-
         reactionSent = true;
 
 
@@ -301,7 +297,6 @@ public class ReactionScreen : MonoBehaviour
             if (countdownActive == false)
             {
                 AudioS_testStart.PlayOneShot(ui_test_start);
-                Debug.Log("Test Start Audio");
                 countdownActive = true;
             }
 

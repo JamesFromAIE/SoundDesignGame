@@ -93,7 +93,7 @@ public class MidPoint : MonoBehaviour
 
     void PlayOffClick()
     {
-        if (Input.GetMouseButtonDown(0) && state != 0)
+        if (Input.GetMouseButtonDown(0) && state == 6)
         {
             OffClick.clip = foley_player_click;
             OffClick.Play();

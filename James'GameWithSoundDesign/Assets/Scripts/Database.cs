@@ -67,8 +67,6 @@ public class Database : MonoBehaviour
             reactionHigh = 0;
             reactionRecent = 0;
             reactionAverage = 0;
-
-            Debug.Log("Reaction Results Cleared");
             
         }
 
@@ -106,7 +104,6 @@ public class Database : MonoBehaviour
             reflexAverage = 0;
 
             clearSave.clearReflex = false;
-            Debug.Log("Reflex Results Cleared");
         }
     }
 
