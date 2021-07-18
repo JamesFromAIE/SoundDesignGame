@@ -30,6 +30,10 @@ public class FPSMovement : MonoBehaviour
     [SerializeField] float ftsTTime = 0.4f;
     [SerializeField] float ftsCTime = 0;
 
+    [SerializeField] float minPitch = 0.8f;
+    [SerializeField] float maxPitch = 1f;
+    private float pitch;
+
     private float m_finalSpeed = 0;
 
     // Start is called before the first frame update
@@ -125,11 +129,15 @@ public class FPSMovement : MonoBehaviour
     void PlayFtsAudio()
     {
         if (Input.GetKey(m_forward) || Input.GetKey(m_back) || Input.GetKey(m_left) || Input.GetKey(m_right))
-            if(ftsTTime <= ftsCTime) // Checks if current time is equal or larger than the set T time
+        {
+            if (ftsTTime <= ftsCTime) // Checks if current time is equal or larger than the set T time
             {
+                pitch = Random.Range(minPitch, maxPitch);
+                ftsAudioS.pitch = pitch;
                 ftsAudioS.Play();
                 ftsCTime = 0;
             }
+        }
     }
     
 }

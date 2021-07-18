@@ -13189,7 +13189,8 @@ MonoBehaviour:
   foley_player_fts: {fileID: 8300000, guid: d46d03b1149d2294caf36de25ba70238, type: 3}
   ftsTTime: 0.4
   ftsCTime: 0
-  walkDelay: 0.05
+  minPitch: 0.5
+  maxPitch: 1
 --- !u!33 &7465350183266762026
 MeshFilter:
   m_ObjectHideFlags: 0
