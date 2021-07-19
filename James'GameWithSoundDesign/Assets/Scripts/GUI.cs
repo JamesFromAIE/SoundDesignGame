@@ -35,6 +35,7 @@ public class GUI : MonoBehaviour
     {
         // Starts the GUI in a default state
         state = 0;
+        mouseLook.m_sensivity = SSlider.value;
         Application.targetFrameRate = 60;
     }
 
@@ -139,6 +140,6 @@ public class GUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // Locks our cursor to the screen
         mouseLook.play = false;
 
-        mouseLook.m_sensivity = SSlider.value * 300 + 10;
+        mouseLook.m_sensivity = SSlider.value;
     }
 }
