@@ -253,7 +253,7 @@ AudioMixerController:
     - 643cf5fdd2066184091576589e930459
     - 21deaecc3a7b48b4ca374b977f9cdca3
     name: Luke View
-  m_CurrentViewIndex: 0
+  m_CurrentViewIndex: 1
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
@@ -304,11 +304,14 @@ AudioMixerSnapshotController:
   m_FloatValues:
     06425ec307305344aa20e3f0f7989d47: 1
     3e6f4dd64208b57489fbfb98523a7636: -0.02577689
-    f970b659703f7c143b33facc038d89ad: 0.13552584
+    f970b659703f7c143b33facc038d89ad: -5
     fe18b8d976cc0e0488444edbb2b55e71: 0
+    e2ba592a185e74640ad38e56a2be5895: 5.67851
     9b401d1b12b492740872b4de222397e7: 5.1526933
     4124b6eb35c303e4a948be32bda83752: -19.928473
     bd3dde4cae0ac9743bd3d986296cd538: 9.925883
+    7d1ff6ddb476ad74282010c0c56fce4b: -5
+    7f1a082e961706b4f9cba2983dfb3f8d: 5
     c697f5aefc9e6d74a94707e8d1872601: -0.16685188
     030c5cbf5a7cd9e4e9493cd125096e60: -10.345207
     892979dfdd5d23148ab87f7faf00d97a: -9.833286
