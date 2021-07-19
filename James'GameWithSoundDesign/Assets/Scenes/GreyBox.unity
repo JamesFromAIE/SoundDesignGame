@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 26926723}
-  music_world: {fileID: 8300000, guid: f1e8d1123c6533a46890e4f619f45646, type: 3}
+  music_world: {fileID: 8300000, guid: 2aa10a0f1d0b9974c8dac05677a1978b, type: 3}
   RS: {fileID: 281939853}
   RB: {fileID: 1419721698}
   fadeTime: 1
@@ -280,7 +280,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8198985520951082122, guid: e10951e14a3d3334fa50a7b8d745c96a, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
