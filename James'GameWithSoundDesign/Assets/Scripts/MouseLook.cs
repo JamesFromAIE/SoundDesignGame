@@ -12,20 +12,19 @@ public class MouseLook : MonoBehaviour
 
     private Vector2 m_mousePos; // Store mouse position
     private float m_xRotation = 0f; // Final loop up rotation value
+    [HideInInspector] public bool play;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked; // Locks our cursor to the center of screen
-    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        GetMousePos(); // get the mouse position
-        ClampUpRotatation(); // clamp the loop up
-        LookAt(); // look at mouse position
+        if (play)
+        {
+            GetMousePos(); // get the mouse position
+            ClampUpRotatation(); // clamp the loop up
+            LookAt(); // look at mouse position
+        }
     }
 
     // Get mouse position

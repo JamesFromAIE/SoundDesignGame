@@ -5,6 +5,7 @@ public class GUI : MonoBehaviour
 {
     // Links script to Database
     public Database database;
+    [SerializeField] MouseLook mouseLook;
 
     private bool viewingScreen = false;
     public bool resultsSent = false;
@@ -23,11 +24,10 @@ public class GUI : MonoBehaviour
     public Text reactionsAverageText;
 
     // Establishes UI Elements used
-    public GameObject reflexesText;
-    public GameObject reactionsText;
-    public GameObject mask;
-    public GameObject esc;
+    public GameObject menu;
 
+    //sensitivity slider variables
+    [SerializeField] Slider SSlider;
 
 
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class GUI : MonoBehaviour
     {
         // Starts the GUI in a default state
         state = 0;
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -117,11 +118,10 @@ public class GUI : MonoBehaviour
         reactionsHighText.enabled = false;
         reactionsAverageText.enabled = false;
 
-        reflexesText.SetActive(false);
-        reactionsText.SetActive(false);
-        mask.SetActive(false);
-        esc.SetActive(true);
+        menu.SetActive(false);
         viewingScreen = false;
+        Cursor.lockState = CursorLockMode.Locked; // Locks our cursor to the center of screen
+        mouseLook.play = true;
     }
 
     void OnCase()
@@ -134,11 +134,11 @@ public class GUI : MonoBehaviour
         reactionsHighText.enabled = true;
         reactionsAverageText.enabled = true;
 
-        reflexesText.SetActive(true);
-        reactionsText.SetActive(true);
-        mask.SetActive(true);
-        esc.SetActive(true);
+        menu.SetActive(true);
         viewingScreen = true;
-    }
+        Cursor.lockState = CursorLockMode.None; // Locks our cursor to the screen
+        mouseLook.play = false;
 
+        mouseLook.m_sensivity = SSlider.value * 300 + 10;
+    }
 }

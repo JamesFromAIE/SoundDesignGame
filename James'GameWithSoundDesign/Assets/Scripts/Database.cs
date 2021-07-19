@@ -159,7 +159,7 @@ public class Database : MonoBehaviour
         // Finds the Average overall Score OVER the number of scores
         reflexAverage = listOfReflexes.Sum() / reflexAverageCount;
         // Rounds Average to two decimal place
-        reflexAverage = (Mathf.Round(reflexAverage * 100) / 100);
+        reflexAverage = (Mathf.Round(reflexAverage * 100 ) / 100);
         // Resets number of scores in List
         reflexAverageCount = 0;
 
