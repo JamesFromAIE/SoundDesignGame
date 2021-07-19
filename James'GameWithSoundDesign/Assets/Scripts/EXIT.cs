@@ -60,7 +60,7 @@ public class EXIT : MonoBehaviour
                 Application.Quit();
 
                 // DISABLE THIS STATEMENT ON BUILD
-                EditorApplication.ExitPlaymode();
+                //EditorApplication.ExitPlaymode();
             }
             else if (verifyTime <= 1)
             {

@@ -13449,7 +13449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98f466061641e24b9a4f2b4b0b98c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sensivity: 500
+  m_sensivity: 150
   m_clampAngle: 75
   m_playerObject: {fileID: 7465350182967509190}
   m_camera: {fileID: 7465350183895100903}
