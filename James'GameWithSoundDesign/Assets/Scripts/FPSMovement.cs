@@ -25,8 +25,8 @@ public class FPSMovement : MonoBehaviour
     public KeyCode m_sprint;
     public KeyCode m_jump;
 
-    [SerializeField] AudioSource ftsAudioS;
-    [SerializeField] AudioClip foley_player_fts;
+    [SerializeField] AudioSource ftsAudioS = null;
+    [SerializeField] AudioClip foley_player_fts = null;
     [SerializeField] float ftsTTime = 0.4f;
     [SerializeField] float ftsCTime = 0;
 

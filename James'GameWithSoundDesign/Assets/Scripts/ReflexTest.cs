@@ -82,9 +82,6 @@ public class ReflexTest : MonoBehaviour
 
             startShown = true;
             
-
-            Debug.Log("PLAYING REFLEX TEST!");
-
         }
 
         StartingUI();
@@ -100,8 +97,6 @@ public class ReflexTest : MonoBehaviour
             reflexButtons.randomNumber = 0;
 
             reflexButtons.LitButtons();
-
-            Debug.Log("You pressed the Lit Buttons " + score + " times!");
 
             reflexSent = true;
 
@@ -149,7 +144,6 @@ public class ReflexTest : MonoBehaviour
             if (countdownActive == false)
             {
                 AudioS_testStart.PlayOneShot(ui_test_start);
-                Debug.Log("Test Start Audio");
                 countdownActive = true;
             }
 

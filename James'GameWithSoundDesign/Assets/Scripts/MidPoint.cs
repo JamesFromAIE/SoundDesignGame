@@ -3,8 +3,8 @@
 public class MidPoint : MonoBehaviour
 {
     public GameObject onRay;
-    [SerializeField] AudioSource OffClick;
-    [SerializeField] AudioClip foley_player_click;
+    [SerializeField] AudioSource OffClick = null;
+    [SerializeField] AudioClip foley_player_click = null;
 
     private int state;
 

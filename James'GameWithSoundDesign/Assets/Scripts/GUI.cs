@@ -5,7 +5,7 @@ public class GUI : MonoBehaviour
 {
     // Links script to Database
     public Database database;
-    [SerializeField] MouseLook mouseLook;
+    [SerializeField] MouseLook mouseLook = null;
 
     private bool viewingScreen = false;
     public bool resultsSent = false;
@@ -27,7 +27,7 @@ public class GUI : MonoBehaviour
     public GameObject menu;
 
     //sensitivity slider variables
-    [SerializeField] Slider SSlider;
+    [SerializeField] Slider SSlider = null;
 
 
     // Start is called before the first frame update
